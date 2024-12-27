@@ -20,4 +20,6 @@ public interface EmployeeService {
     int getEmployeesWithSecondMaximumSalary();
 
     List<Employee> getEmployeeNameWithMaximumSalary();
+
+    List<Employee> getEmployeeNameWithSecondMaximumSalary();
 }

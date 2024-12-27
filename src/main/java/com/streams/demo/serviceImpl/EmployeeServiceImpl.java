@@ -76,4 +76,16 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .stream()
                 .toList();
     }
+
+    @Override
+    public List<Employee> getEmployeeNameWithSecondMaximumSalary() {
+
+        return employeeRepository.findAll()
+                .stream()
+                .sorted(Comparator.comparing(Employee::getSalary).reversed())
+                .distinct()
+                .skip(1)
+                .findFirst()
+                .stream().toList();
+    }
 }

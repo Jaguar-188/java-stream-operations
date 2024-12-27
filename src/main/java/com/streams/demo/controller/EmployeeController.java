@@ -60,4 +60,10 @@ public class EmployeeController {
 
         return employeeService.getEmployeeNameWithMaximumSalary();
     }
+
+    @GetMapping(value = "/getEmployeeNameWithSecondMaximumSalary")
+    public List<Employee> getEmployeeNameWithSecondMaximumSalary(){
+
+        return employeeService.getEmployeeNameWithSecondMaximumSalary();
+    }
 }
