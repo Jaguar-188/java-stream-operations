@@ -88,4 +88,25 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .findFirst()
                 .stream().toList();
     }
+
+    @Override
+    public List<Employee> getEmployeeNameWithSalaryGreaterThan5000() {
+
+        return employeeRepository.findAll()
+                .stream()
+                .filter(employee -> employee.getSalary() > 5000)
+                .distinct()
+                .limit(100)
+                .collect(Collectors.toList());
+
+    }
+
+    @Override
+    public Map<Integer, List<Employee>> getDepartmentWiseEmployeeList() {
+
+        return employeeRepository.findAll()
+                .stream()
+                .limit(10)
+                .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.toList()));
+    }
 }

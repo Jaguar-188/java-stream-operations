@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/employee-controller")
@@ -66,4 +68,17 @@ public class EmployeeController {
 
         return employeeService.getEmployeeNameWithSecondMaximumSalary();
     }
+
+    @GetMapping(value = "/getEmployeeNameWithSalaryGreaterThan5000")
+    public List<Employee> getEmployeeNameWithSalaryGreaterThan5000(){
+
+        return employeeService.getEmployeeNameWithSalaryGreaterThan5000();
+    }
+
+    @GetMapping(value = "/getDepartmentWiseEmployeeList")
+    public Map<Integer,List<Employee>> getDepartmentWiseEmployeeList(){
+
+        return employeeService.getDepartmentWiseEmployeeList();
+    }
+
 }
