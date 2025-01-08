@@ -64,7 +64,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .skip(1)
                 .findFirst()
                 .get();
-
     }
 
     @Override
@@ -98,7 +97,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .distinct()
                 .limit(100)
                 .collect(Collectors.toList());
-
     }
 
     @Override
@@ -109,4 +107,13 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .limit(10)
                 .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.toList()));
     }
+
+//    @Override
+//    public Map<Integer, Integer> getDepartmentWiseMaximumSalary() {
+//
+//        return employeeRepository.findAll()
+//                .stream()
+//                .map()
+//                .collect(Collectors.groupingBy(Employee::getDepartment))
+//    }
 }

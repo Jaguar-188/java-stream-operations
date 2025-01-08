@@ -81,4 +81,10 @@ public class EmployeeController {
         return employeeService.getDepartmentWiseEmployeeList();
     }
 
+//    @GetMapping(value = "/getDepartmentWiseMaximumSalary")
+//    public Map<Integer,Integer> getDepartmentWiseMaximumSalary(){
+//
+//        return employeeService.getDepartmentWiseMaximumSalary();
+//    }
+
 }

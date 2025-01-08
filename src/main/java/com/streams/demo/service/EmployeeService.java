@@ -27,4 +27,6 @@ public interface EmployeeService {
     List<Employee> getEmployeeNameWithSalaryGreaterThan5000();
 
     Map<Integer,List<Employee>> getDepartmentWiseEmployeeList();
+
+//    Map<Integer, Integer> getDepartmentWiseMaximumSalary();
 }
