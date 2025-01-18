@@ -28,5 +28,7 @@ public interface EmployeeService {
 
     Map<Integer,List<Employee>> getDepartmentWiseEmployeeList();
 
+    List<Employee> getEmployeesSortedBySalaryUsingComparator();
+
 //    Map<Integer, Integer> getDepartmentWiseMaximumSalary();
 }

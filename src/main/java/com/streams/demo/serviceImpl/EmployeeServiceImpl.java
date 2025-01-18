@@ -3,6 +3,10 @@ package com.streams.demo.serviceImpl;
 import com.streams.demo.entity.Employee;
 import com.streams.demo.repository.EmployeeRepository;
 import com.streams.demo.service.EmployeeService;
+import com.streams.demo.utils.ComparatorHelper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -106,6 +110,31 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .stream()
                 .limit(10)
                 .collect(Collectors.groupingBy(Employee::getDepartment,Collectors.toList()));
+    }
+
+    @Override
+    public List<Employee> getEmployeesSortedBySalaryUsingComparator() {
+
+        Pageable pageable = PageRequest.of(0,100);
+
+        List<Employee> employeeList = new ArrayList<>(employeeRepository.findAll(pageable).getContent());
+
+        employeeList.sort(new Comparator<Employee>() {
+            @Override
+            public int compare(Employee e1, Employee e2) {
+                if(e1.getSalary() < e2.getSalary())
+                {
+                    return -1;
+                } else if (e1.getSalary() == e2.getSalary()) {
+                    return 0;
+                }
+                else
+                {
+                    return 1;
+                }
+            }
+        });
+        return employeeList;
     }
 
 //    @Override
